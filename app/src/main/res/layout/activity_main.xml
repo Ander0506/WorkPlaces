@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="textPersonName|textPostalAddress"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF"
             android:textColorLink="#00bbe4" />
@@ -60,7 +60,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             android:textColorLink="#00bbe4" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:gravity="end"
+            android:text="Button" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
