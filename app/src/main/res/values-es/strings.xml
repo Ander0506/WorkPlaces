@@ -3,4 +3,7 @@
     <string name="app_name">WorkPlaces</string>
     <string name="user">Usuario</string>
     <string name="password">Contraseña</string>
+    <string name="err_empty">Los campos son requeridos</string>
+    <string name="err_user">Usuario no valido</string>
+    <string name="login">Inicia sesión</string>
 </resources>

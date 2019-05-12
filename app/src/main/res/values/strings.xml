@@ -2,4 +2,7 @@
     <string name="app_name">WorkPlaces</string>
     <string name="user">User</string>
     <string name="password">Password</string>
+    <string name="err_empty">Fields are required</string>
+    <string name="err_user">Not valid user</string>
+    <string name="login">Login</string>
 </resources>
