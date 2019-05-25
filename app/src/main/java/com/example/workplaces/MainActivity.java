@@ -13,6 +13,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -20,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText TxtUser, TxtPassword;
     private FirebaseAuth Auth;
     private Resources Res;
+    private ArrayList<Place> places = new ArrayList<>();
 
     /* en el menu herramientas (firebase) escoger la opcion authentication
      y conectar con un proyecto existente o crear uno nuevo y seguir los pasos
@@ -58,9 +66,19 @@ public class MainActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
 
-//                                Si la autenticacion es valida procedemos a iniciar la siguiente pagina
 
+//                                Si la autenticacion es valida procedemos a iniciar la siguiente pagina
                                 Intent intent = new Intent(MainActivity.this, Home.class);
+
+                                /*String Id = "1";
+                                String Nombre = "sala12";
+                                String Bloque = "11";
+                                String Piso = "2";
+                                Boolean Disponible = false;
+                                int Type = 1;
+                                Place placeAdd = new Place(Id,Nombre,Bloque,Piso,Disponible,Type);
+                                Ref.child("places").child(placeAdd.getId()).setValue(placeAdd);*/
+
                                 startActivity(intent);
                             } else {
 

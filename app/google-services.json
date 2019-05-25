@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "250313909182-vh2graiviu8vk2p7r7g0rbng2p801fs2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.workplaces",
+            "certificate_hash": "af606d0f5955c48fc10369d7922122a2ef0723dd"
+          }
+        },
+        {
           "client_id": "250313909182-fapr02keu8a7ju29a6vtp8qs939k0fv4.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

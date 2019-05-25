@@ -6,14 +6,15 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class BuscarPlantilla extends AppCompatActivity {
 
     private Intent In;
-    private ArrayList<Place> places;
-    ArrayList<Place> PlaceToShow;
+    private ArrayList<Place> places = new ArrayList<>();
+    private ArrayList<Place> PlaceToShow;
 
     ArrayList<String> titles = new ArrayList<>();
 
@@ -38,19 +39,22 @@ public class BuscarPlantilla extends AppCompatActivity {
         String[] titles = getResources().getStringArray(R.array.TiposDeLugar);
 
         title.setText(titles[typePlace]);
-        loadContact(places,typePlace);
 
-
-    }
-
-    public void loadContact(ArrayList<Place> places, int type){
         PlaceToShow = new ArrayList<>();
-        for (int i = 0; i <places.size();i++){
+
+
+        for (int i =0; i <places.size();i++){
             Place actual = places.get(i);
-            if (actual.getType() == type){
+            if (actual.getType() == typePlace){
                 PlaceToShow.add(actual);
+            }else{
+
             }
         }
 
+        //Toast.makeText(this,"llego", Toast.LENGTH_LONG).show();
+
+
     }
+
 }
