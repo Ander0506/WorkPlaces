@@ -5,4 +5,9 @@
     <string name="err_empty">Fields are required</string>
     <string name="err_user">Not valid user</string>
     <string name="login">Login</string>
+    <string name="salaDePc">Salas de PC</string>
+    <string name="mesaDeTrabajo">Mesa De Trabajo</string>
+    <string name="salaPersonalizada">Sala Personalizada</string>
+    <string name="parqueadero">Parqueadero</string>
+    <string name="necesito">Necesito</string>
 </resources>
