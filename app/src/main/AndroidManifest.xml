@@ -21,6 +21,8 @@
         <activity android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"></activity>
         <activity android:name=".Home" />
+        <activity android:name=".BuscarPlantilla"></activity>
+
     </application>
 
 </manifest>

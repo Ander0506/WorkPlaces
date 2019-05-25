@@ -10,4 +10,14 @@
     <string name="salaPersonalizada">Sala Personalizada</string>
     <string name="parqueadero">Parqueadero</string>
     <string name="necesito">Necesito</string>
+    <string name="salon">Salon</string>
+
+    <string-array name="TiposDeLugar">
+        <item>@string/salaDePc</item>
+        <item>@string/mesaDeTrabajo</item>
+        <item>@string/salaPersonalizada</item>
+        <item>@string/parqueadero</item>
+        <item>@string/salon</item>
+    </string-array>
+
 </resources>

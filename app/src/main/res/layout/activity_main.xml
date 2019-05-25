@@ -36,6 +36,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName|textPostalAddress"
+                android:text="test@mail.com"
                 android:textColor="#FFFFFF"
                 android:textColorHint="#FFFFFF"
                 android:textColorLink="#00bbe4" />
@@ -54,6 +55,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPassword"
+                android:text="123456"
                 android:textColor="@android:color/white"
                 android:textColorLink="#00bbe4" />
 

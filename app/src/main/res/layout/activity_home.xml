@@ -24,24 +24,35 @@
             android:id="@+id/hm_bt_salasdepc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="listPcRooms"
             android:text="@string/salaDePc" />
 
         <Button
             android:id="@+id/hm_bt_mesaTrabajo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="listWorkTables"
             android:text="@string/mesaDeTrabajo" />
 
         <Button
             android:id="@+id/hm_bt_SalaPersonalizada"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="listPersonalizedRooms"
             android:text="@string/salaPersonalizada" />
 
         <Button
             android:id="@+id/hm_bt_parqueadero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="listParking"
             android:text="@string/parqueadero" />
+
+        <Button
+            android:id="@+id/hm_bt_salon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="listClassRooms"
+            android:text="@string/salon" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

@@ -9,13 +9,16 @@ public class Place {
     private String Bloque;
     private String Piso;
     private Boolean Disponible;
+    //0=Sala 1=mesadeTrabajo  2=MesaPersonalizada  3=Parqueadero
+    private int Type;
 
-    public Place(String id, String nombre, String bloque, String piso, Boolean disponible) {
+    public Place(String id, String nombre, String bloque, String piso, Boolean disponible, int type) {
         Id = id;
         Nombre = nombre;
         Bloque = bloque;
         Piso = piso;
         Disponible = disponible;
+        Type = type;
     }
 
     public String getId() {
@@ -48,6 +51,14 @@ public class Place {
 
     public void setPiso(String piso) {
         Piso = piso;
+    }
+
+    public int getType() {
+        return Type;
+    }
+
+    public void setType(int type) {
+        Type = type;
     }
 
     public Boolean getDisponible() {
