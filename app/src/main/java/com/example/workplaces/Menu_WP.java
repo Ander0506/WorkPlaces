@@ -2,6 +2,7 @@ package com.example.workplaces;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
@@ -12,6 +13,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class Menu_WP extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -21,6 +28,34 @@ public class Menu_WP extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference Ref = database.getReference("places");
+
+        Ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                //Np funciona la forma de leer los datos
+                for(DataSnapshot ds: dataSnapshot.getChildren()){
+
+                    String Id = ds.child("id").getValue().toString();
+                    String Nombre = ds.child("nombre").getValue().toString();
+                    String Bloque = ds.child("bloque").getValue().toString();
+                    String Piso = ds.child("piso").getValue().toString();
+                    Boolean Disponible = Boolean.valueOf(ds.child("disponible").getValue().toString());
+                    int Type = Integer.parseInt(ds.child("type").getValue().toString());
+
+                    Data.Save(new Place(Id,Nombre,Bloque,Piso,Disponible,Type));
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
         setContentView(R.layout.activity_menu__wp);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

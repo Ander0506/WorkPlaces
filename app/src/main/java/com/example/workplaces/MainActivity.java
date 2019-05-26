@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                                 Ref.child("13").setValue(new Place("13","Sala Pers 3","11","5",true,2));
                                 Ref.child("14").setValue(new Place("14","Sala Pers 4","11","6",false,2));*/
 
-                                Intent intent = new Intent(MainActivity.this, Home.class);
+                                Intent intent = new Intent(MainActivity.this, Menu_WP.class);
 
                                 startActivity(intent);
                             } else {
