@@ -1,0 +1,12 @@
+<vector android:height="24dp" android:viewportHeight="512"
+    android:viewportWidth="512" android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#FF000000" android:pathData="m497,0h-482c-8.285,0 -15,6.715 -15,15v482c0,8.285 6.715,15 15,15h482c8.285,0 15,-6.715 15,-15v-482c0,-8.285 -6.715,-15 -15,-15zM482,241h-211v-211h211zM30,30h211v211h-211zM30,271h211v211h-211zM482,482h-211v-211h211zM482,482"/>
+    <path android:fillColor="#FF000000" android:pathData="m316,211h60c8.285,0 15,-6.715 15,-15v-121c0,-8.285 -6.715,-15 -15,-15h-60c-8.285,0 -15,6.715 -15,15v121c0,8.285 6.715,15 15,15zM331,90h30v91h-30zM331,90"/>
+    <path android:fillColor="#FF000000" android:pathData="m437,170.5c8.285,0 15,-6.715 15,-15v-40c0,-8.285 -6.715,-15 -15,-15s-15,6.715 -15,15v40c0,8.285 6.715,15 15,15zM437,170.5"/>
+    <path android:fillColor="#FF000000" android:pathData="m135,60h-60c-8.285,0 -15,6.715 -15,15v121c0,8.285 6.715,15 15,15h60c8.285,0 15,-6.715 15,-15v-121c0,-8.285 -6.715,-15 -15,-15zM120,181h-30v-91h30zM120,181"/>
+    <path android:fillColor="#FF000000" android:pathData="m196,100.5c-8.285,0 -15,6.715 -15,15v40c0,8.285 6.715,15 15,15s15,-6.715 15,-15v-40c0,-8.285 -6.715,-15 -15,-15zM196,100.5"/>
+    <path android:fillColor="#FF000000" android:pathData="m135,301h-60c-8.285,0 -15,6.715 -15,15v121c0,8.285 6.715,15 15,15h60c8.285,0 15,-6.715 15,-15v-121c0,-8.285 -6.715,-15 -15,-15zM120,422h-30v-91h30zM120,422"/>
+    <path android:fillColor="#FF000000" android:pathData="m196,341.5c-8.285,0 -15,6.715 -15,15v40c0,8.285 6.715,15 15,15s15,-6.715 15,-15v-40c0,-8.285 -6.715,-15 -15,-15zM196,341.5"/>
+    <path android:fillColor="#FF000000" android:pathData="m316,452h60c8.285,0 15,-6.715 15,-15v-121c0,-8.285 -6.715,-15 -15,-15h-60c-8.285,0 -15,6.715 -15,15v121c0,8.285 6.715,15 15,15zM331,331h30v91h-30zM331,331"/>
+    <path android:fillColor="#FF000000" android:pathData="m437,411.5c8.285,0 15,-6.715 15,-15v-40c0,-8.285 -6.715,-15 -15,-15s-15,6.715 -15,15v40c0,8.285 6.715,15 15,15zM437,411.5"/>
+</vector>

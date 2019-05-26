@@ -19,5 +19,24 @@
         <item>@string/parqueadero</item>
         <item>@string/salon</item>
     </string-array>
+    <string name="title_activity_menu__wp">Menu_WP</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_pc_room">PC Room</string>
+    <string name="menu_table_work">Table Work</string>
+    <string name="menu_custom_room">Custom Room</string>
+    <string name="menu_parking">Parking</string>
+    <string name="menu_room">Room</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="menu_title">Whatdo you need?</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

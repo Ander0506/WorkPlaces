@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 //                                Si la autenticacion es valida procedemos a iniciar la siguiente pagina
-                                Intent intent = new Intent(MainActivity.this, Home.class);
+                                Intent intent = new Intent(MainActivity.this, Menu_WP.class);
 
                                 /*String Id = "1";
                                 String Nombre = "sala12";
