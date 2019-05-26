@@ -28,6 +28,7 @@
                 android:text="TextView" />
 
             <EditText
+                android:id="@+id/bp_txt_Busqueda"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
