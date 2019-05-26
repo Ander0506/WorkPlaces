@@ -20,8 +20,8 @@
         <item>@string/salon</item>
     </string-array>
 
-
-
+    <string name="bloque">Bloque</string>
+    <string name="todo">Todo</string>
     <string name="si">si</string>
     <string name="no">no</string>
     <string name="Utilisar">Utilisar este Lugar?</string>
