@@ -2,9 +2,17 @@ package com.example.workplaces;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.Path;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
+import android.support.graphics.drawable.VectorDrawableCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +24,7 @@ import java.util.ArrayList;
 public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHolder> {
     private ArrayList<Place> places;
     private Resources res;
+    private Drawable drawable;
 
 
     public PlaceAdapter(Context context, ArrayList<Place> places){
@@ -34,9 +43,16 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHol
     public void onBindViewHolder(PlaceViewHolder holder, int position) {
         final Place p = places.get(position);
         holder.name.setText(p.getNombre());
-        holder.location.setText(p.getBloque()+" "+p.getPiso());
+        holder.location.setText("Bloque: "+p.getBloque()+" piso: "+p.getPiso());
          //Valido el color a mostrar el indicador
-        holder.indicador.setImageDrawable((ResourcesCompat.getDrawable(res, R.drawable.ic_indicator_24dp,null)));
+
+        drawable = ResourcesCompat.getDrawable(res, R.drawable.ic_indicator_24dp,null);
+        holder.indicador.setImageDrawable(drawable);
+        if (p.getDisponible()){
+            holder.indicador.setColorFilter(Color.GREEN);
+        }else{
+            holder.indicador.setColorFilter(Color.RED);
+        }
     }
 
     @Override
