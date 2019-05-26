@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Menu_WP"
+            android:label="@string/title_activity_menu__wp"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".Splash_Screen"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
             <intent-filter>
@@ -18,11 +22,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity android:name=".Home" />
-        <activity android:name=".BuscarPlantilla"></activity>
-
+        <activity android:name=".BuscarPlantilla"/>
     </application>
 
 </manifest>

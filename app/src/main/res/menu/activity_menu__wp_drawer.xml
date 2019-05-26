@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_pc_room"
+            android:icon="@drawable/ic_pc_room"
+            android:title="@string/menu_pc_room" />
+        <item
+            android:id="@+id/nav_table_work"
+            android:icon="@drawable/ic_table_work"
+            android:title="@string/menu_table_work" />
+        <item
+            android:id="@+id/nav_custom_room"
+            android:icon="@drawable/ic_custom_room"
+            android:title="@string/menu_custom_room" />
+        <item
+            android:id="@+id/nav_parking"
+            android:icon="@drawable/ic_parking"
+            android:title="@string/menu_parking" />
+        <item
+            android:id="@+id/nav_room"
+            android:icon="@drawable/ic_room"
+            android:title="@string/menu_room" />
+    </group>
+
+</menu>
