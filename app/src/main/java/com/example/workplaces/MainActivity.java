@@ -65,19 +65,26 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-
-
 //                                Si la autenticacion es valida procedemos a iniciar la siguiente pagina
-                                Intent intent = new Intent(MainActivity.this, Menu_WP.class);
+                                /*FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                DatabaseReference Ref = database.getReference("places");
+                                Ref.child("2").setValue(new Place("2","Sala 1","3","3",true,0));
+                                Ref.child("3").setValue(new Place("3","Sala 2","1","3",true,0));
+                                Ref.child("4").setValue(new Place("4","Sala 3","10","3",false,0));
+                                Ref.child("5").setValue(new Place("5","Sala 4","8","3",false,0));
 
-                                /*String Id = "1";
-                                String Nombre = "sala12";
-                                String Bloque = "11";
-                                String Piso = "2";
-                                Boolean Disponible = false;
-                                int Type = 1;
-                                Place placeAdd = new Place(Id,Nombre,Bloque,Piso,Disponible,Type);
-                                Ref.child("places").child(placeAdd.getId()).setValue(placeAdd);*/
+                                Ref.child("6").setValue(new Place("6","Mesita 1","11","3",true,1));
+                                Ref.child("7").setValue(new Place("7","Mesita 2","11","5",false,1));
+                                Ref.child("8").setValue(new Place("8","Mesita 3","11","5",true,1));
+                                Ref.child("9").setValue(new Place("9","Mesita 4","11","6",true,1));
+                                Ref.child("10").setValue(new Place("10","Mesita 5","11","6",false,1));
+
+                                Ref.child("11").setValue(new Place("11","Sala Pers 1","11","3",false,2));
+                                Ref.child("12").setValue(new Place("12","Sala Pers 2","11","3",true,2));
+                                Ref.child("13").setValue(new Place("13","Sala Pers 3","11","5",true,2));
+                                Ref.child("14").setValue(new Place("14","Sala Pers 4","11","6",false,2));*/
+
+                                Intent intent = new Intent(MainActivity.this, Home.class);
 
                                 startActivity(intent);
                             } else {

@@ -6,7 +6,13 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +28,7 @@ public class BuscarPlantilla extends AppCompatActivity {
 
     private TextView title;
     private RecyclerView Rv;
+    private EditText busqueda;
 
 
 
@@ -40,6 +47,7 @@ public class BuscarPlantilla extends AppCompatActivity {
 
         title = (TextView) findViewById(R.id.bp_txt_Title);
         Rv = (RecyclerView) findViewById(R.id.bp_Rv_Datos);
+        busqueda = (EditText) findViewById(R.id.bp_txt_Busqueda);
 
 
 
@@ -67,8 +75,46 @@ public class BuscarPlantilla extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(BuscarPlantilla.this);
         Rv.setLayoutManager(llm);
         Rv.setAdapter(adapter);
+
+       busqueda.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                PlaceAdapter adapter = new PlaceAdapter(BuscarPlantilla.this,BuscarString(s.toString()));
+                LinearLayoutManager llm = new LinearLayoutManager(BuscarPlantilla.this);
+                Rv.setLayoutManager(llm);
+                Rv.setAdapter(adapter);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
+
+
      //   Toast.makeText(this,"llego4", Toast.LENGTH_LONG).show();
 
+    }
+
+    public ArrayList<Place> BuscarString(String st){
+        ArrayList PlaceToSearchAux = new ArrayList();
+        for (int i = 0; i<PlaceToShow.size();i++ ){
+            Place place = PlaceToShow.get(i);
+            if (place.getNombre().toLowerCase().contains(st.toLowerCase())){
+                PlaceToSearchAux.add(place);
+            }else{
+
+            }
+
+        }
+        return PlaceToSearchAux;
     }
 
 }
