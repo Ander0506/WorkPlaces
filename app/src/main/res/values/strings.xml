@@ -32,7 +32,7 @@
     <string name="menu_custom_room">Custom Room</string>
     <string name="menu_parking">Parking</string>
     <string name="menu_room">Room</string>
-    <string name="menu_share">Share</string>
+    <string name="menu_add_place">Add place</string>
     <string name="menu_send">Send</string>
     <string name="menu_title">Whatdo you need?</string>
 
@@ -44,5 +44,11 @@
     <string name="si">si</string>
     <string name="no">no</string>
     <string name="Utilisar">Utilisar este Lugar?</string>
+    <string name="title_activity_prueba345">prueba345</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
 
 </resources>

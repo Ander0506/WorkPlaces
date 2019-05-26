@@ -146,6 +146,9 @@ public class Menu_WP extends AppCompatActivity
             In= new Intent(Menu_WP.this,BuscarPlantilla.class);
             In.putExtra("TypePlace",TypePlace);
             startActivity(In);
+        } else if (id == R.id.nav_add_place){
+            In= new Intent(Menu_WP.this,NewPlace.class);
+            startActivity(In);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
