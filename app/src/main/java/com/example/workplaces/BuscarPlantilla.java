@@ -228,7 +228,7 @@ public class BuscarPlantilla extends AppCompatActivity {
             public void onClick(View v) {
                 final Place selected = places.get(Rv.getChildAdapterPosition(v));
                 if (selected.getDisponible()){
-                    AlertDialog.Builder usar = new AlertDialog.Builder(getApplicationContext());
+                  /*  AlertDialog.Builder usar = new AlertDialog.Builder(getApplicationContext());
                     usar.setMessage(R.string.Utilisar)
                             .setCancelable(false)
                             .setPositiveButton(R.string.si, new DialogInterface.OnClickListener() {
@@ -249,9 +249,12 @@ public class BuscarPlantilla extends AppCompatActivity {
 
                     AlertDialog titulo = usar.create();
                     titulo.setTitle(getResources().getString(R.string.usar));
-                    titulo.show();
+                    titulo.show();¨*/
+                selected.changeAvailable();
+                Toast.makeText(getApplicationContext(),"sele:"+selected.getDisponible(),Toast.LENGTH_SHORT).show();
+                loadplaces(PlaceToShow);
                 }else{
-                    AlertDialog.Builder usar = new AlertDialog.Builder(getApplicationContext());
+                  /*  AlertDialog.Builder usar = new AlertDialog.Builder(getApplicationContext());
                     usar.setMessage(R.string.ya_ocupado)
                             .setCancelable(true)
                             .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
@@ -264,9 +267,12 @@ public class BuscarPlantilla extends AppCompatActivity {
 
                     AlertDialog titulo = usar.create();
                     titulo.setTitle(getResources().getString(R.string.ocupado));
-                    titulo.show();
+                    titulo.show();*/
+                selected.changeAvailable();
+                Toast.makeText(getApplicationContext(),"El seleccionado esta ocupado",Toast.LENGTH_SHORT).show();
+                    loadplaces(PlaceToShow);
 
-                }
+            }
 
 
 

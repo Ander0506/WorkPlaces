@@ -36,6 +36,7 @@ public class Menu_WP extends AppCompatActivity
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 //Np funciona la forma de leer los datos
+                Data.RemoveAll();
                 for(DataSnapshot ds: dataSnapshot.getChildren()){
 
                     String Id = ds.child("id").getValue().toString();

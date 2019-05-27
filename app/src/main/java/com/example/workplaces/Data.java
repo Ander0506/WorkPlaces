@@ -16,6 +16,9 @@ public class Data  {
         return Places;
     }
 
+    public static void RemoveAll(){
+        Places.clear();
+    }
 
     public static void Edit(Place p, String id, String name, String bloque, String piso, boolean disponible){
 
