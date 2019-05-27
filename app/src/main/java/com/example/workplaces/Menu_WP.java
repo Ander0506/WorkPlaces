@@ -12,6 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -45,8 +46,10 @@ public class Menu_WP extends AppCompatActivity
                     Boolean Disponible = Boolean.valueOf(ds.child("disponible").getValue().toString());
                     int Type = Integer.parseInt(ds.child("type").getValue().toString());
 
-                    Data.Save(new Place(Id,Nombre,Bloque,Piso,Disponible,Type));
+                    Data.LLenarVec(new Place(Id,Nombre,Bloque,Piso,Disponible,Type));
                 }
+                Toast.makeText(Menu_WP.this, "LLegoData", Toast.LENGTH_SHORT).show();
+             //   BuscarPlantilla
 
             }
 

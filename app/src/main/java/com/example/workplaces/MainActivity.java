@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     private Resources Res;
     private ArrayList<Place> places = new ArrayList<>();
 
+
+
     /* en el menu herramientas (firebase) escoger la opcion authentication
      y conectar con un proyecto existente o crear uno nuevo y seguir los pasos
     */

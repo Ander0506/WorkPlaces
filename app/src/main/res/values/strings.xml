@@ -57,4 +57,16 @@
 
     <string name="ya_ocupado">El lugar Seleccionado no esta disponible</string>
 <string name="ocupado">Ocupado</string>
+    <string name="nuevo_lugar">Nuevo Lugar</string>
+    <string name="id">Id</string>
+    <string name="nombre">Nombre</string>
+    <string name="piso">Piso</string>
+    <string name="tipo_place">Tipo de lugar</string>
+    <string name="agregar">Agregar</string>
+
+    <string name="nombre_vacio">Nombre no puede ser Vacio</string>
+    <string name="bloque_vacio">Bloque no puede ser Vacio</string>
+    <string name="piso_vacio">Piso no puede ser Vacio</string>
+    <string name="pisoNeg">El piso es incorrecto</string>
+
 </resources>

@@ -3,6 +3,7 @@ package com.example.workplaces;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,12 @@ import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -50,9 +57,41 @@ public class BuscarPlantilla extends AppCompatActivity {
 
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+       /* FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference RefPlaces = database.getReference("places");
+
+        RefPlaces.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                //Np funciona la forma de leer los datos
+                Data.RemoveAll();
+                for(DataSnapshot ds: dataSnapshot.getChildren()){
+
+                    String Id = ds.child("id").getValue().toString();
+                    String Nombre = ds.child("nombre").getValue().toString();
+                    String Bloque = ds.child("bloque").getValue().toString();
+                    String Piso = ds.child("piso").getValue().toString();
+                    Boolean Disponible = Boolean.valueOf(ds.child("disponible").getValue().toString());
+                    int Type = Integer.parseInt(ds.child("type").getValue().toString());
+
+                    Data.Save(new Place(Id,Nombre,Bloque,Piso,Disponible,Type));
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });*/
+
+
         setContentView(R.layout.buscar_plantilla);
 
         In = getIntent();
@@ -90,13 +129,9 @@ public class BuscarPlantilla extends AppCompatActivity {
 
             }
         }
-       /* PlaceAdapter adapter = new PlaceAdapter(BuscarPlantilla.this,PlaceToShow);
-        LinearLayoutManager llm = new LinearLayoutManager(BuscarPlantilla.this);
-        Rv.setLayoutManager(llm);
-        Rv.setAdapter(adapter);*/
+
 
         //Evento para la RECYCLEVIEW
-
         loadplaces(PlaceToShow);
 
         //PREPARACION DE SPINNER DE LOS BLOQUES
@@ -240,6 +275,7 @@ public class BuscarPlantilla extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int which) {
                                    // Data.ChangeAvailable(selected);
                                     selected.changeAvailable();
+                                    loadplaces(PlaceToShow);
 
 
                                 }
@@ -255,9 +291,6 @@ public class BuscarPlantilla extends AppCompatActivity {
                     titulo.setTitle(getResources().getString(R.string.usar));
                     titulo.show();
 
-                selected.changeAvailable();
-                Toast.makeText(getApplicationContext(),"sele:"+selected.getDisponible(),Toast.LENGTH_SHORT).show();
-                loadplaces(PlaceToShow);
                 }else{
 
                     AlertDialog.Builder usar = new AlertDialog.Builder(BuscarPlantilla.this);
@@ -269,7 +302,13 @@ public class BuscarPlantilla extends AppCompatActivity {
                                     dialog.cancel();
 
                             }
-                            });
+                            }).setNegativeButton("act", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            selected.changeAvailable();
+                            loadplaces(PlaceToShow);
+                        }
+                    });
 
                     AlertDialog titulo = usar.create();
                     titulo.setTitle(getResources().getString(R.string.ocupado));
