@@ -77,4 +77,8 @@ public class Place {
        Data.Remove(this);
     }
 
+    public void changeAvailable(){
+        Data.ChangeAvailable(this);
+    }
+
 }

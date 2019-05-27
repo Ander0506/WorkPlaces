@@ -44,6 +44,7 @@
     <string name="si">si</string>
     <string name="no">no</string>
     <string name="Utilisar">Utilisar este Lugar?</string>
+    <string name="usar">USAR</string>
     <string name="title_activity_prueba345">prueba345</string>
 
     <string name="menu_home">Home</string>
@@ -51,4 +52,7 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_tools">Tools</string>
 
+
+    <string name="ya_ocupado">El lugar Seleccionado no esta disponible</string>
+<string name="ocupado">Ocupado</string>
 </resources>

@@ -1,8 +1,10 @@
 package com.example.workplaces;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -92,7 +94,10 @@ public class BuscarPlantilla extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(BuscarPlantilla.this);
         Rv.setLayoutManager(llm);
         Rv.setAdapter(adapter);*/
-         loadplaces(PlaceToShow);
+
+        //Evento para la RECYCLEVIEW
+
+        loadplaces(PlaceToShow);
 
         //PREPARACION DE SPINNER DE LOS BLOQUES
         BuildingsAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_1,bloques);
@@ -129,7 +134,8 @@ public class BuscarPlantilla extends AppCompatActivity {
                     loadplaces(BuscarPorBloqueyPiso(posPiso));
 
                 }else{
-                    //nothing
+                    loadplaces(BuscarPorBloque(posBloque));
+
                 }
             }
 
@@ -191,7 +197,7 @@ public class BuscarPlantilla extends AppCompatActivity {
                     pisos.add(place.getPiso());
                 }
             }else{
-
+                //nothingHere
             }
 
         }
@@ -205,21 +211,70 @@ public class BuscarPlantilla extends AppCompatActivity {
         String Stage = pisos.get(posPiso);
         for (int i = 0; i<PlaceToShow.size();i++ ){
             Place place = PlaceToShow.get(i);
-            if (place.getBloque().equals(Building) && place.getPiso().equals(posPiso)){
+            if (place.getBloque().equals(Building) && place.getPiso().equals(Stage)){
                 PlaceToSearchAux.add(place);
 
             }else{
-
+                //nothing here
             }
         }
         return PlaceToSearchAux;
     }
 
-
-
-
-    public void loadplaces(ArrayList<Place> places){
+    public void loadplaces(final ArrayList<Place> places){
         PlaceAdapter adapter = new PlaceAdapter(BuscarPlantilla.this,places);
+        adapter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Place selected = places.get(Rv.getChildAdapterPosition(v));
+                if (selected.getDisponible()){
+                    AlertDialog.Builder usar = new AlertDialog.Builder(getApplicationContext());
+                    usar.setMessage(R.string.Utilisar)
+                            .setCancelable(false)
+                            .setPositiveButton(R.string.si, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                   // Data.ChangeAvailable(selected);
+                                    selected.changeAvailable();
+
+
+                                }
+                            })
+                            .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+                                }
+                            });
+
+                    AlertDialog titulo = usar.create();
+                    titulo.setTitle(getResources().getString(R.string.usar));
+                    titulo.show();
+                }else{
+                    AlertDialog.Builder usar = new AlertDialog.Builder(getApplicationContext());
+                    usar.setMessage(R.string.ya_ocupado)
+                            .setCancelable(true)
+                            .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+
+                            }
+                            });
+
+                    AlertDialog titulo = usar.create();
+                    titulo.setTitle(getResources().getString(R.string.ocupado));
+                    titulo.show();
+
+                }
+
+
+
+
+
+
+            }
+        });
         LinearLayoutManager llm = new LinearLayoutManager(BuscarPlantilla.this);
         Rv.setLayoutManager(llm);
         Rv.setAdapter(adapter);

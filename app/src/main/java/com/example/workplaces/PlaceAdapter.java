@@ -25,11 +25,13 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHolder> {
+public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHolder> implements View.OnClickListener {
     private ArrayList<Place> places;
     private Resources res;
     private Drawable drawable;
     private Context context;
+
+    private View.OnClickListener listener;
 
     private View.OnClickListener onItemClickListener;
 
@@ -43,7 +45,7 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHol
     @Override
     public PlaceViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_place, parent,  false);
-
+         v.setOnClickListener(this);
         return new PlaceViewHolder(v);
     }
 
@@ -90,6 +92,17 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHol
     @Override
     public int getItemCount() {
         return places.size();
+    }
+    public void setOnClickListener(View.OnClickListener listener){
+        this.listener=listener;
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        if(listener!= null){
+            listener.onClick(v);
+        }
     }
 
 
