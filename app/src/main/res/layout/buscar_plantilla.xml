@@ -64,6 +64,7 @@
                         android:focusable="auto"
                         android:hint="@string/search"
                         android:inputType="textPersonName"
+                        android:textColor="#FD020202"
                         android:theme="@style/EditCustom" />
                 </LinearLayout>
 
