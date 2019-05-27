@@ -17,5 +17,11 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="EditCustom" parent="Theme.AppCompat">
+        <!--<item name="colorControlNormal">#CE93D8</item>-->
+        <item name="colorControlActivated">#003400</item>
+        <!--<item name="android:textColorHighlight">#E1BEE7</item>-->
+    </style>
+
 
 </resources>
