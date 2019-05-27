@@ -4,7 +4,7 @@ import com.example.workplaces.Place;
 
 import java.util.ArrayList;
 
-public class Data {
+public class Data  {
     private static ArrayList<Place> Places = new ArrayList<>();
     private static ArrayList<User>  Users = new ArrayList<>();
 
@@ -37,6 +37,21 @@ public class Data {
 
     public static void RemoveUser(User u){
         Users.remove(u);
+    }
+
+    public static void ChangeAvailable(Place p){
+
+        for (int i = 0;i<Places.size();i++){
+            Place Actual = Places.get(i);
+            if (Actual.getId().equals(p.getId())){
+                if (Actual.getDisponible()){
+                    Actual.setDisponible(false);
+                }else{
+                    Actual.setDisponible(true);
+                }
+            }
+        }
+
     }
 
 }
