@@ -29,12 +29,11 @@ public class Menu_WP extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference Ref = database.getReference("places");
+        DatabaseReference RefPlaces = database.getReference("places");
 
-        Ref.addValueEventListener(new ValueEventListener() {
+        RefPlaces.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
                 //Np funciona la forma de leer los datos
                 Data.RemoveAll();
                 for(DataSnapshot ds: dataSnapshot.getChildren()){

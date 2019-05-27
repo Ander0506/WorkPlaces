@@ -222,13 +222,17 @@ public class BuscarPlantilla extends AppCompatActivity {
     }
 
     public void loadplaces(final ArrayList<Place> places){
+
         PlaceAdapter adapter = new PlaceAdapter(BuscarPlantilla.this,places);
+
         adapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final Place selected = places.get(Rv.getChildAdapterPosition(v));
+
                 if (selected.getDisponible()){
-                  /*  AlertDialog.Builder usar = new AlertDialog.Builder(getApplicationContext());
+
+                  AlertDialog.Builder usar = new AlertDialog.Builder(BuscarPlantilla.this);
                     usar.setMessage(R.string.Utilisar)
                             .setCancelable(false)
                             .setPositiveButton(R.string.si, new DialogInterface.OnClickListener() {
@@ -249,12 +253,14 @@ public class BuscarPlantilla extends AppCompatActivity {
 
                     AlertDialog titulo = usar.create();
                     titulo.setTitle(getResources().getString(R.string.usar));
-                    titulo.show();¨*/
+                    titulo.show();
+
                 selected.changeAvailable();
                 Toast.makeText(getApplicationContext(),"sele:"+selected.getDisponible(),Toast.LENGTH_SHORT).show();
                 loadplaces(PlaceToShow);
                 }else{
-                  /*  AlertDialog.Builder usar = new AlertDialog.Builder(getApplicationContext());
+
+                    AlertDialog.Builder usar = new AlertDialog.Builder(BuscarPlantilla.this);
                     usar.setMessage(R.string.ya_ocupado)
                             .setCancelable(true)
                             .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
@@ -267,10 +273,11 @@ public class BuscarPlantilla extends AppCompatActivity {
 
                     AlertDialog titulo = usar.create();
                     titulo.setTitle(getResources().getString(R.string.ocupado));
-                    titulo.show();*/
-                selected.changeAvailable();
-                Toast.makeText(getApplicationContext(),"El seleccionado esta ocupado",Toast.LENGTH_SHORT).show();
-                    loadplaces(PlaceToShow);
+                    titulo.show();
+
+               // selected.changeAvailable();
+                //Toast.makeText(getApplicationContext(),"El seleccionado esta ocupado",Toast.LENGTH_SHORT).show();
+                  //  loadplaces(PlaceToShow);
 
             }
 
@@ -281,6 +288,7 @@ public class BuscarPlantilla extends AppCompatActivity {
 
             }
         });
+
         LinearLayoutManager llm = new LinearLayoutManager(BuscarPlantilla.this);
         Rv.setLayoutManager(llm);
         Rv.setAdapter(adapter);
