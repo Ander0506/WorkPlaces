@@ -16,12 +16,15 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
     <style name="EditCustom" parent="Theme.AppCompat">
         <!--<item name="colorControlNormal">#CE93D8</item>-->
         <item name="colorControlActivated">#003400</item>
-        <!--<item name="android:textColorHighlight">#E1BEE7</item>-->
-    </style>
 
+    </style>
+    <!--<item name="android:textColorHighlight">#E1BEE7</item>-->
+    <style name="EditCustom2" parent="Theme.AppCompat">
+        <item name="colorControlActivated">#7FA87F</item>
+        <item name="colorControlNormal">#F4F4F4</item>
+    </style>
 
 </resources>

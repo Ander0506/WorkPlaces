@@ -15,7 +15,6 @@
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="1dp"
             app:cardBackgroundColor="#FFFFFF"
             app:cardElevation="3dp"
             app:cardMaxElevation="4dp">
@@ -38,7 +37,7 @@
                 <FrameLayout
                     android:layout_width="150dp"
                     android:layout_height="2dp"
-                    android:background="#98A2FD">
+                    android:background="#F9F9F9FC">
 
                 </FrameLayout>
 
