@@ -1,5 +1,8 @@
 package com.example.workplaces;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
+
 import com.example.workplaces.Place;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -22,6 +25,23 @@ public class Data  {
 
     public static void setPlaceActual(Place placeActual) {
         PlaceActual = placeActual;
+    }
+
+    public static boolean esActual(Place placenew){
+        boolean res;
+
+        if (PlaceActual == null){
+            res = false;
+        }else{
+            if (placenew.equals(getPlaceActual())){
+                res = true;
+            }else{
+                res= false;
+            }
+        }
+
+
+        return res;
     }
 
     public static void Save(Place p){
@@ -81,6 +101,10 @@ public class Data  {
             RefPlaces.child(p.getId()).child("disponible").setValue("true");
         }
 
+    }
+    public static void DesocuparPlaceActual(){
+        RefPlaces.child(PlaceActual.getId()).child("disponible").setValue("true");
+        PlaceActual=null;
     }
 
 }

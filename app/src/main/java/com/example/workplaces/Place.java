@@ -1,6 +1,7 @@
 package com.example.workplaces;
 
 import java.security.PublicKey;
+import java.util.Objects;
 
 public class Place {
 
@@ -81,4 +82,16 @@ public class Place {
         Data.ChangeAvailable(this);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Place place = (Place) o;
+        return Id.equals(place.Id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(Id);
+    }
 }

@@ -2,6 +2,7 @@ package com.example.workplaces;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -38,6 +39,7 @@ public class BuscarPlantilla extends AppCompatActivity {
     private ArrayList<String> bloques;
     private ArrayList<String> pisos;
 
+    private Place placeActual;
     ArrayList<String> titles = new ArrayList<>();
 
     private ArrayAdapter<String> StagesAdapter;
@@ -49,6 +51,7 @@ public class BuscarPlantilla extends AppCompatActivity {
     private Spinner buildings;
     private Spinner stages;
     private int typePlace;
+    private Resources res;
 
     private int posBloque;
     private int posPiso;
@@ -57,8 +60,10 @@ public class BuscarPlantilla extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        res = getResources();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference RefPlaces = database.getReference("places");
+
 
         RefPlaces.addValueEventListener(new ValueEventListener() {
             @Override
@@ -115,6 +120,7 @@ public class BuscarPlantilla extends AppCompatActivity {
         bloques.add(getResources().getString(R.string.todo));
         pisos.add(getResources().getString(R.string.todo));
 
+        placeActual = Data.getPlaceActual();
         //llenado del placetoshow y de los spinners
         LLenadoPlaceToshow();
 
@@ -291,56 +297,99 @@ public class BuscarPlantilla extends AppCompatActivity {
 
                 if (selected.getDisponible()){
 
-                  AlertDialog.Builder usar = new AlertDialog.Builder(BuscarPlantilla.this);
-                    usar.setMessage(R.string.Utilisar)
-                            .setCancelable(false)
-                            .setPositiveButton(R.string.si, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                   // Data.ChangeAvailable(selected);
-                                    selected.changeAvailable();
-                                 //   loadplaces(PlaceToShow);
+                    if (Data.getPlaceActual()==null){
+
+                        AlertDialog.Builder usar = new AlertDialog.Builder(BuscarPlantilla.this);
+                        usar.setMessage(R.string.Utilisar)
+                                .setCancelable(false)
+                                .setPositiveButton(R.string.si, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+
+                                        selected.changeAvailable();
+                                        Data.setPlaceActual(selected);
 
 
-                                }
-                            })
-                            .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.cancel();
-                                }
-                            });
 
-                    AlertDialog titulo = usar.create();
-                    titulo.setTitle(getResources().getString(R.string.usar));
-                    titulo.show();
+                                    }
+                                })
+                                .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
 
+                        AlertDialog titulo = usar.create();
+                        titulo.setTitle(getResources().getString(R.string.usar));
+                        titulo.show();
+
+                    }else{
+                            placeActual = Data.getPlaceActual();
+
+                        AlertDialog.Builder usar = new AlertDialog.Builder(BuscarPlantilla.this);
+                        usar.setMessage(R.string.ya_ocupado+"\n"
+                                +" "+Data.getPlaceActual().getNombre()+" "+R.string.en+" \n"
+                                +" "+R.string.bloque+" "+Data.getPlaceActual().getBloque()+"\n"
+                                +R.string.deseaUsar)
+                                .setCancelable(false)
+                                .setPositiveButton(R.string.si, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Data.DesocuparPlaceActual();
+                                        selected.changeAvailable();
+                                        Data.setPlaceActual(selected);
+
+                                    }
+                                })
+                                .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+
+                        AlertDialog titulo = usar.create();
+                        titulo.setTitle(getResources().getString(R.string.usar));
+                        titulo.show();
+
+
+
+                    }
                 }else{
+                    if (Data.esActual(selected)) {
+                        AlertDialog.Builder usar = new AlertDialog.Builder(BuscarPlantilla.this);
+                        usar.setMessage(R.string.yaUsandoEsta)
+                                .setCancelable(true)
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
 
-                    AlertDialog.Builder usar = new AlertDialog.Builder(BuscarPlantilla.this);
-                    usar.setMessage(R.string.ya_ocupado)
-                            .setCancelable(true)
-                            .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.cancel();
 
-                            }
-                            }).setNegativeButton("act", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            selected.changeAvailable();
-                            //loadplaces(PlaceToShow);
+                        AlertDialog titulo = usar.create();
+                        titulo.setTitle(getResources().getString(R.string.usar));
+                        titulo.show();
+
+                    }else{
+                            AlertDialog.Builder usar = new AlertDialog.Builder(BuscarPlantilla.this);
+                            usar.setMessage(R.string.ya_ocupado)
+                                    .setCancelable(true)
+                                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            dialog.cancel();
+
+                                        }
+                                    });
+
+                            AlertDialog titulo = usar.create();
+                            titulo.setTitle(getResources().getString(R.string.ocupado));
+                            titulo.show();
                         }
-                    });
 
-                    AlertDialog titulo = usar.create();
-                    titulo.setTitle(getResources().getString(R.string.ocupado));
-                    titulo.show();
-
-               // selected.changeAvailable();
-                //Toast.makeText(getApplicationContext(),"El seleccionado esta ocupado",Toast.LENGTH_SHORT).show();
-                  //  loadplaces(PlaceToShow);
 
             }
 

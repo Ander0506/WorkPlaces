@@ -45,6 +45,11 @@
     <string name="no">no</string>
     <string name="Utilisar">Utilisar este Lugar?</string>
     <string name="usar">USAR</string>
+    <string name="Yatienesp1">Usted esta usando ahora:</string>
+    <string name="en">en</string>
+    <string name="deseaUsar">Desea usar este ahora?</string>
+    <string name="yaUsandoEsta">Ya estas Usando Este Lugar</string>
+
     <string name="title_activity_prueba345">prueba345</string>
 
     <string name="menu_home">Home</string>
@@ -72,5 +77,6 @@
     <string name="create_new_user">Create New User</string>
     <string name="register">Register</string>
     <string name="err_register">Register failed</string>
+
 
 </resources>
