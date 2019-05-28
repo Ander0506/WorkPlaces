@@ -7,6 +7,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 public class Data  {
+
+    private static Place PlaceActual;
     private static FirebaseDatabase database = FirebaseDatabase.getInstance();
     private static DatabaseReference RefPlaces = database.getReference("places");
     private static DatabaseReference RefGlobal = database.getReference("globalVar");
@@ -14,7 +16,13 @@ public class Data  {
     private static ArrayList<Place> Places = new ArrayList<>();
     private static ArrayList<User>  Users = new ArrayList<>();
 
+    public static Place getPlaceActual() {
+        return PlaceActual;
+    }
 
+    public static void setPlaceActual(Place placeActual) {
+        PlaceActual = placeActual;
+    }
 
     public static void Save(Place p){
         RefPlaces.child(p.getId()).setValue(p);

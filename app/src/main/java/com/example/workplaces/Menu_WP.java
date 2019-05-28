@@ -47,9 +47,10 @@ public class Menu_WP extends AppCompatActivity
                     int Type = Integer.parseInt(ds.child("type").getValue().toString());
 
                     Data.LLenarVec(new Place(Id,Nombre,Bloque,Piso,Disponible,Type));
+
                 }
-                Toast.makeText(Menu_WP.this, "LLegoData", Toast.LENGTH_SHORT).show();
-             //   BuscarPlantilla
+               // Toast.makeText(Menu_WP.this, "LLegoData", Toast.LENGTH_SHORT).show();
+
 
             }
 

@@ -33,8 +33,8 @@ import java.util.ArrayList;
 public class BuscarPlantilla extends AppCompatActivity {
 
     private Intent In;
-    private ArrayList<Place> places = new ArrayList<>();
-    private ArrayList<Place> PlaceToShow;
+    private  ArrayList<Place> places = new ArrayList<>();
+    public  ArrayList<Place> PlaceToShow;
     private ArrayList<String> bloques;
     private ArrayList<String> pisos;
 
@@ -48,29 +48,23 @@ public class BuscarPlantilla extends AppCompatActivity {
     private EditText busqueda;
     private Spinner buildings;
     private Spinner stages;
+    private int typePlace;
 
     private int posBloque;
     private int posPiso;
-
-
-
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-       /* FirebaseDatabase database = FirebaseDatabase.getInstance();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference RefPlaces = database.getReference("places");
 
         RefPlaces.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 //Np funciona la forma de leer los datos
-                Data.RemoveAll();
+                places.clear();
                 for(DataSnapshot ds: dataSnapshot.getChildren()){
 
                     String Id = ds.child("id").getValue().toString();
@@ -80,8 +74,13 @@ public class BuscarPlantilla extends AppCompatActivity {
                     Boolean Disponible = Boolean.valueOf(ds.child("disponible").getValue().toString());
                     int Type = Integer.parseInt(ds.child("type").getValue().toString());
 
-                    Data.Save(new Place(Id,Nombre,Bloque,Piso,Disponible,Type));
+                    places.add(new Place(Id,Nombre,Bloque,Piso,Disponible,Type));
+
                 }
+                LLenadoPlaceToshow();
+                loadplaces(PlaceToShow);
+                Toast.makeText(BuscarPlantilla.this, "LLegoData", Toast.LENGTH_SHORT).show();
+
 
             }
 
@@ -89,15 +88,14 @@ public class BuscarPlantilla extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });*/
+        });
 
 
         setContentView(R.layout.buscar_plantilla);
 
         In = getIntent();
-        places = Data.Get();
 
-        int typePlace = In.getIntExtra("TypePlace",5);
+        typePlace = In.getIntExtra("TypePlace",5);
 
         title = (TextView) findViewById(R.id.bp_txt_Title);
         Rv = (RecyclerView) findViewById(R.id.bp_Rv_Datos);
@@ -117,18 +115,8 @@ public class BuscarPlantilla extends AppCompatActivity {
         bloques.add(getResources().getString(R.string.todo));
         pisos.add(getResources().getString(R.string.todo));
 
-        for (int i =0; i <places.size();i++){
-            Place actual = places.get(i);
-            if (actual.getType() == typePlace){
-                PlaceToShow.add(actual);
-                if (!bloques.contains(actual.getBloque())){
-                    bloques.add(actual.getBloque());
-                }
-
-            }else{
-
-            }
-        }
+        //llenado del placetoshow y de los spinners
+        LLenadoPlaceToshow();
 
 
         //Evento para la RECYCLEVIEW
@@ -189,7 +177,11 @@ public class BuscarPlantilla extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                loadplaces(BuscarString(s.toString()));
+                if (count==0){
+                    loadplaces(PlaceToShow);
+                }else {
+                    loadplaces(BuscarString(s.toString()));
+                }
               /*  PlaceAdapter adapter = new PlaceAdapter(BuscarPlantilla.this,BuscarString(s.toString()));
                 LinearLayoutManager llm = new LinearLayoutManager(BuscarPlantilla.this);
                 Rv.setLayoutManager(llm);
@@ -209,15 +201,47 @@ public class BuscarPlantilla extends AppCompatActivity {
     //MEtodo devuelve Array con lo que se escribe en ST
     public ArrayList<Place> BuscarString(String st){
         ArrayList PlaceToSearchAux = new ArrayList();
-        for (int i = 0; i<PlaceToShow.size();i++ ){
-            Place place = PlaceToShow.get(i);
-            if (place.getNombre().toLowerCase().contains(st.toLowerCase())){
-                PlaceToSearchAux.add(place);
-            }else{
 
+        if (posBloque == 0 && posBloque == 0){
+
+            for (int i = 0; i<PlaceToShow.size();i++ ) {
+                Place place = PlaceToShow.get(i);
+                if (place.getNombre().toLowerCase().contains(st.toLowerCase())) {
+                    PlaceToSearchAux.add(place);
+                }
             }
 
+        }else if (posPiso == 0) {
+
+
+            for (int i = 0; i<PlaceToShow.size();i++ ) {
+                Place place = PlaceToShow.get(i);
+                if (place.getNombre().toLowerCase().contains(st.toLowerCase())) {
+
+                    if (place.getNombre().toLowerCase().contains(st.toLowerCase())&&
+                            place.getBloque().toLowerCase().equals(bloques.get(posBloque))) {
+                        PlaceToSearchAux.add(place);
+                    }
+
+                }
+            }
+
+        }else{
+            for (int i = 0; i<PlaceToShow.size();i++ ) {
+                Place place = PlaceToShow.get(i);
+                if (place.getNombre().toLowerCase().contains(st.toLowerCase())) {
+
+                    if (place.getNombre().toLowerCase().contains(st.toLowerCase())&&
+                            place.getBloque().toLowerCase().equals(bloques.get(posBloque))&&
+                            place.getPiso().toLowerCase().equals(pisos.get(posPiso))) {
+                        PlaceToSearchAux.add(place);
+                    }
+
+                }
+            }
         }
+
+
         return PlaceToSearchAux;
     }
 
@@ -275,7 +299,7 @@ public class BuscarPlantilla extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int which) {
                                    // Data.ChangeAvailable(selected);
                                     selected.changeAvailable();
-                                    loadplaces(PlaceToShow);
+                                 //   loadplaces(PlaceToShow);
 
 
                                 }
@@ -306,7 +330,7 @@ public class BuscarPlantilla extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             selected.changeAvailable();
-                            loadplaces(PlaceToShow);
+                            //loadplaces(PlaceToShow);
                         }
                     });
 
@@ -332,5 +356,27 @@ public class BuscarPlantilla extends AppCompatActivity {
         Rv.setLayoutManager(llm);
         Rv.setAdapter(adapter);
     }
+
+    public void updatevista(){
+
+    }
+
+    public void LLenadoPlaceToshow(){
+        PlaceToShow.clear();
+        for (int i =0; i <places.size();i++){
+            Place actual = places.get(i);
+            if (actual.getType() == typePlace){
+                PlaceToShow.add(actual);
+                if (!bloques.contains(actual.getBloque())){
+                    bloques.add(actual.getBloque());
+                }
+
+            }else{
+
+            }
+        }
+
+    }
+
 
 }
