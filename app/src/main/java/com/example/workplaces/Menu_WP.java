@@ -14,8 +14,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,7 +32,9 @@ public class Menu_WP extends AppCompatActivity
     private int TypePlace;
 
     private TextView RecUsado;
+    private LinearLayout mess;
     private Resources res;
+    private Animation animLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +83,7 @@ public class Menu_WP extends AppCompatActivity
 //            }
 //        });
         RecUsado = (TextView) findViewById(R.id.hmTxtActualdes);
+        mess = (LinearLayout) findViewById(R.id.cn_Actual);
         updatePlaceActualView();
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -178,12 +183,21 @@ public class Menu_WP extends AppCompatActivity
         String txt = "";
         Place PlaceActual = Data.getPlaceActual();
         if (PlaceActual==null){
-            txt= res.getString(R.string.no_Res);
+
+            animLayout = AnimationUtils.loadAnimation(this, R.anim.anim_layout_revert);
+            if(mess.getVisibility() == View.VISIBLE){
+                mess.setAnimation(animLayout);
+                mess.setVisibility(View.INVISIBLE);
+            }
+
 
         }else{
+            animLayout = AnimationUtils.loadAnimation(this, R.anim.anim_logo);
             txt= res.getString(R.string.nombre)+": "+PlaceActual.getNombre()+"\n"
                     +res.getString(R.string.bloque)+": "+PlaceActual.getBloque()+"\n"
                     +res.getString(R.string.piso)+": "+PlaceActual.getPiso();
+            mess.setAnimation(animLayout);
+            mess.setVisibility(View.VISIBLE);
         }
         RecUsado.setText(txt);
     }

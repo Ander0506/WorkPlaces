@@ -84,7 +84,7 @@ public class BuscarPlantilla extends AppCompatActivity {
                 }
                 LLenadoPlaceToshow();
                 loadplaces(PlaceToShow);
-                Toast.makeText(BuscarPlantilla.this, "LLegoData", Toast.LENGTH_SHORT).show();
+            //    Toast.makeText(BuscarPlantilla.this, "LLegoData", Toast.LENGTH_SHORT).show();
 
 
             }

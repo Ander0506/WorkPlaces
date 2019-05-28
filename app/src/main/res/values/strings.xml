@@ -5,12 +5,9 @@
     <string name="err_empty">Fields are required</string>
     <string name="err_user">Not valid user</string>
     <string name="login">Login</string>
-    <string name="salaDePc">Salas de PC</string>
-    <string name="mesaDeTrabajo">Mesa De Trabajo</string>
-    <string name="salaPersonalizada">Sala Personalizada</string>
-    <string name="parqueadero">Parqueadero</string>
-    <string name="necesito">Necesito</string>
-    <string name="salon">Salon</string>
+    <string name="salaDePc">PC rooms</string>
+    <string name="salaPersonalizada">Custom room</string>
+    <string name="salon">room</string>
 
     <string-array name="TiposDeLugar">
         <item>@string/salaDePc</item>
@@ -33,54 +30,50 @@
     <string name="menu_parking">Parking</string>
     <string name="menu_room">Room</string>
     <string name="menu_add_place">Add place</string>
-    <string name="menu_send">Send</string>
-    <string name="menu_title">Whatdo you need?</string>
+    <string name="menu_title">What do you need?</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="bloque">Bloque</string>
-    <string name="todo">Todo</string>
-    <string name="si">si</string>
-    <string name="no">no</string>
-    <string name="Utilisar">Utilisar este Lugar?</string>
-    <string name="usar">USAR</string>
-    <string name="Yatienesp1">Usted esta usando ahora:</string>
-    <string name="en">en</string>
-    <string name="deseaUsar">Desea usar este ahora?</string>
-    <string name="yaUsandoEsta">Ya estas usando el Lugar: </string>
+    <string name="no">not</string>
+    <string name="Utilisar">" Use this place?"</string>
+    <string name="Yatienesp1">You are using now:</string>
 
-    <string name="title_activity_prueba345">prueba345</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_tools">Tools</string>
     <string name="find_your_place">Find your place</string>
     <string name="search">Search</string>
 
 
-    <string name="ya_ocupado">El lugar Seleccionado no esta disponible</string>
-    <string name="ocupado">Ocupado</string>
-    <string name="nuevo_lugar">Nuevo Lugar</string>
     <string name="id">Id</string>
-    <string name="nombre">Nombre</string>
-    <string name="piso">Piso</string>
-    <string name="tipo_place">Tipo de lugar</string>
-    <string name="agregar">Agregar</string>
 
-    <string name="nombre_vacio">Nombre no puede ser Vacio</string>
-    <string name="bloque_vacio">Bloque no puede ser Vacio</string>
-    <string name="piso_vacio">Piso no puede ser Vacio</string>
-    <string name="pisoNeg">El piso es incorrecto</string>
+    <string name="piso_vacio">" Floor can not be empty"</string>
+    <string name="pisoNeg">The floor is wrong</string>
 
     <string name="create_new_user">Create New User</string>
     <string name="register">Register</string>
     <string name="err_register">Register failed</string>
-    <string name="usando_actual">Estoy Usando:</string>
-    <string name="desocupar">Desocupar</string>
 
-    <string name="no_Res">Ningun Recurso</string>
+    <string name="no_Res">No Resource</string>
+    <string name="agregar">Add</string>
+    <string name="bloque">Building</string>
+    <string name="bloque_vacio">Building can\'t be empty</string>
+    <string name="deseaUsar">"Do you want to use this now? "</string>
+    <string name="desocupar">Quit</string>
+    <string name="en">in</string>
+    <string name="mesaDeTrabajo">" Work table"</string>
+    <string name="necesito">" I need"</string>
+    <string name="nombre">Name</string>
+    <string name="nombre_vacio">Name can not be empty</string>
+    <string name="nuevo_lugar">New place</string>
+    <string name="ocupado">Occupied</string>
+    <string name="parqueadero">Parking</string>
+    <string name="piso">"Floor "</string>
+    <string name="si">yes</string>
+    <string name="tipo_place">Type of place</string>
+    <string name="usando_actual">I\'m using</string>
+    <string name="usar">USE</string>
+    <string name="yaUsandoEsta">" You are already using the Place:"</string>
+    <string name="todo">All</string>
+    <string name="ya_ocupado">Selected place is not available</string>
 
 
 </resources>

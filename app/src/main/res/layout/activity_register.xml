@@ -4,72 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_new_user"
+    android:focusable="auto"
+    android:focusableInTouchMode="true"
     tools:context=".Register">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFFFFF"
-        android:orientation="vertical">
+        android:gravity="bottom|center_horizontal"
+        android:orientation="vertical"
+        android:padding="30dp">
 
-        <ImageView
-            android:id="@+id/imageView3"
+        <TextView
+            android:id="@+id/TxtNewUser"
             android:layout_width="match_parent"
-            android:layout_height="234dp"
-            app:srcCompat="@drawable/new_user" />
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/create_new_user"
+            android:textColor="#B3A4D5"
+            android:textSize="18sp" />
 
-        <LinearLayout
+        <EditText
+            android:id="@+id/TextNewEmail"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:padding="30dp">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="@string/user"
+            android:inputType="textEmailAddress"
+            android:textColor="#505050"
+            android:textSize="18sp"
+            android:theme="@style/EditCustom2" />
 
-            <TextView
-                android:id="@+id/TxtNewUser"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/create_new_user"
-                android:textColor="#FFD4C3FC"
-                android:textSize="24sp" />
+        <EditText
+            android:id="@+id/TextNewPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:textColor="#505050"
+            android:theme="@style/EditCustom2" />
 
-            <EditText
-                android:id="@+id/TextNewEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:ems="10"
-                android:hint="@string/user"
-                android:inputType="textEmailAddress"
-                android:textColor="#505050"
-                android:textSize="18sp"
-                android:theme="@style/EditCustom2" />
-
-            <EditText
-                android:id="@+id/TextNewPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:ems="10"
-                android:hint="@string/password"
-                android:inputType="textPassword"
-                android:textColor="#505050"
-                android:theme="@style/EditCustom2" />
-
-            <Button
-                android:id="@+id/button3"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="250dp"
-                android:layout_height="45dp"
-                android:layout_marginTop="40dp"
-                android:background="#FFD4C3FC"
-                android:onClick="NewUser"
-                android:padding="0dp"
-                android:text="@string/register"
-                android:textAppearance="@style/TextAppearance.AppCompat.Button"
-                android:textColor="#FFFFFF" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/button3"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="250dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="40dp"
+            android:background="#FFD4C3FC"
+            android:onClick="NewUser"
+            android:padding="0dp"
+            android:text="@string/register"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
-
 </android.support.constraint.ConstraintLayout>

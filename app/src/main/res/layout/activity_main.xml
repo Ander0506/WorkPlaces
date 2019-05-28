@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_login_wp"
+    android:focusable="auto"
+    android:focusableInTouchMode="true"
     android:padding="25dp"
     tools:context=".MainActivity">
 
@@ -36,7 +38,6 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName|textPostalAddress"
-                android:text="test@mail.com"
                 android:textColor="#FFFFFF"
                 android:textColorHint="#FFFFFF"
                 android:textColorLink="#00bbe4" />
@@ -55,7 +56,6 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPassword"
-                android:text="123456"
                 android:textColor="@android:color/white"
                 android:textColorLink="#00bbe4" />
 
@@ -63,13 +63,15 @@
 
         <Button
             android:id="@+id/ButtonLogin"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_marginTop="40dp"
-            android:background="@drawable/button_white_rounded"
+            android:background="@drawable/ic_button_white_rounded_mesa_de_trabajo_1"
             android:gravity="center"
             android:onClick="Login"
-            android:text="@string/login" />
+            android:text="@string/login"
+            android:textColor="#747474" />
 
         <Button
             android:id="@+id/button2"
@@ -77,7 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
-            android:autoLink="email"
+            android:background="@drawable/ic_button_green_rounded_mesa_de_trabajo_1"
             android:onClick="Register"
             android:padding="0dp"
             android:text="@string/register"

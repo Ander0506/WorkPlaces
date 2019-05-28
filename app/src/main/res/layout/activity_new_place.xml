@@ -5,20 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fadeScrollbars="true"
+    android:focusable="auto"
+    android:focusableInTouchMode="true"
     tools:context=".NewPlace">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFFFFF"
         android:orientation="vertical"
         android:overScrollMode="ifContentScrolls"
-        android:padding="15dp">
+        android:padding="0dp">
 
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="match_parent"
-            android:layout_height="205dp"
+            android:layout_height="214dp"
             app:srcCompat="@drawable/new_place" />
 
         <TextView
@@ -33,106 +34,114 @@
             android:textSize="24sp"
             android:textStyle="bold" />
 
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ImgBackgroun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/background_grl" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:padding="40dp">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/np_lb_id"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/np_lb_id"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/id"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                    android:textColor="#505050"
-                    android:textSize="16dp" />
-
-                <TextView
-                    android:id="@+id/np_txt_id"
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="1000"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tipo_place" />
-
-                <Spinner
-                    android:id="@+id/np_sp_tipoPlace"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:spinnerMode="dialog" />
-            </LinearLayout>
-
-            <EditText
-                android:id="@+id/np_txt_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:hint="@string/nombre"
-                android:inputType="textPersonName"
+                android:layout_weight="1"
+                android:text="@string/id"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="#505050"
-                android:textColorHint="#505050"
-                android:theme="@style/EditCustom2" />
+                android:textSize="16dp" />
 
-            <EditText
-                android:id="@+id/np_txt_bloque"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/np_txt_id"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:hint="@string/bloque"
-                android:inputType="textPersonName"
-                android:textColor="#505050"
-                android:textColorHint="#505050"
-                android:theme="@style/EditCustom2" />
-
-            <EditText
-                android:id="@+id/np_txt_piso"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:hint="@string/piso"
-                android:inputType="number"
-                android:textColor="#505050"
-                android:textColorHint="#505050"
-                android:theme="@style/EditCustom2" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="84dp"
-                android:gravity="bottom"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:height="45dp"
-                    android:background="#FFD4C3FC"
-                    android:onClick="save"
-                    android:text="@string/agregar"
-                    android:textColor="#505050" />
-            </LinearLayout>
+                android:layout_weight="1"
+                android:text="1000"
+                android:textSize="18sp" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tipo_place" />
+
+            <Spinner
+                android:id="@+id/np_sp_tipoPlace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dialog" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/np_txt_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:hint="@string/nombre"
+            android:inputType="textPersonName"
+            android:textColor="#505050"
+            android:textColorHint="#505050"
+            android:theme="@style/EditCustom2" />
+
+        <EditText
+            android:id="@+id/np_txt_bloque"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:hint="@string/bloque"
+            android:inputType="textPersonName"
+            android:textColor="#505050"
+            android:textColorHint="#505050"
+            android:theme="@style/EditCustom2" />
+
+        <EditText
+            android:id="@+id/np_txt_piso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:hint="@string/piso"
+            android:inputType="number"
+            android:textColor="#505050"
+            android:textColorHint="#505050"
+            android:theme="@style/EditCustom2" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="84dp"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:height="45dp"
+                android:background="#FFD4C3FC"
+                android:onClick="save"
+                android:text="@string/agregar"
+                android:textColor="#505050" />
+        </LinearLayout>
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

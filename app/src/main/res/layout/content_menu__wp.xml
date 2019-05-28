@@ -5,7 +5,7 @@
     android:id="@+id/frgPr"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_login_wp"
+    android:background="@drawable/background_home"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Menu_WP"
     tools:showIn="@layout/app_bar_menu__wp">

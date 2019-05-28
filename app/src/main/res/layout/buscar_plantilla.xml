@@ -4,98 +4,107 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:padding="15dp">
+    android:background="@drawable/background_grl"
+    android:focusable="auto"
+    android:focusableInTouchMode="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <android.support.v7.widget.CardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="#FFFFFF"
-            app:cardElevation="3dp"
-            app:cardMaxElevation="4dp">
+            android:background="#018577"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/bp_txt_Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"
+                app:fontFamily="@font/open_sans" />
+
+            <FrameLayout
+                android:layout_width="150dp"
+                android:layout_height="2dp"
+                android:background="#F9F9F9FC">
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="5dp">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:paddingLeft="15dp">
 
                 <TextView
-                    android:id="@+id/bp_txt_Title"
-                    android:layout_width="match_parent"
+                    android:id="@+id/TxtNewUser"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                    android:textSize="30sp"
-                    app:fontFamily="@font/open_sans" />
+                    android:layout_weight="1"
+                    android:text="@string/find_your_place"
+                    android:textColor="#727272" />
 
-                <FrameLayout
-                    android:layout_width="150dp"
-                    android:layout_height="2dp"
-                    android:background="#F9F9F9FC">
-
-                </FrameLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <EditText
+                    android:id="@+id/bp_txt_Busqueda"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/TxtNewUser"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/find_your_place" />
-
-                    <EditText
-                        android:id="@+id/bp_txt_Busqueda"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:focusable="auto"
-                        android:hint="@string/search"
-                        android:inputType="textPersonName"
-                        android:textColor="#FD020202"
-                        android:theme="@style/EditCustom" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
-
-                    <Spinner
-                        android:id="@+id/bp_sp_buildings"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.2"
-                        android:spinnerMode="dialog" />
-
-                    <Spinner
-                        android:id="@+id/bp_sp_stages"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.2"
-                        android:spinnerMode="dialog" />
-                </LinearLayout>
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:ems="10"
+                    android:hint="@string/search"
+                    android:inputType="textPersonName"
+                    android:textColor="#858585"
+                    android:textColorHint="#B2000000"
+                    android:theme="@style/EditCustom" />
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="10dp"
+                android:background="#FFFFFF"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/bp_sp_buildings"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:spinnerMode="dialog" />
+
+                <Spinner
+                    android:id="@+id/bp_sp_stages"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:spinnerMode="dialog" />
+            </LinearLayout>
+        </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/bp_Rv_Datos"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:clipChildren="false" />
+            android:layout_margin="30dp"
+            android:background="#E6FFFFFF"
+            android:clipChildren="false"
+            android:padding="15dp" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
