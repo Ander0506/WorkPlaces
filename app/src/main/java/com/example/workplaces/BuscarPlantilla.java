@@ -117,8 +117,8 @@ public class BuscarPlantilla extends AppCompatActivity {
         //utilizo para llenar los spinner para ahorrar tiempo
         bloques = new ArrayList<>();
         pisos = new ArrayList<>();
-        bloques.add(getResources().getString(R.string.todo));
-        pisos.add(getResources().getString(R.string.todo));
+        bloques.add(getResources().getString(R.string.bloque));
+        pisos.add(getResources().getString(R.string.piso));
 
         placeActual = Data.getPlaceActual();
         //llenado del placetoshow y de los spinners
@@ -328,10 +328,10 @@ public class BuscarPlantilla extends AppCompatActivity {
                             placeActual = Data.getPlaceActual();
 
                         AlertDialog.Builder usar = new AlertDialog.Builder(BuscarPlantilla.this);
-                        usar.setMessage(R.string.ya_ocupado+"\n"
-                                +" "+Data.getPlaceActual().getNombre()+" "+R.string.en+" \n"
-                                +" "+R.string.bloque+" "+Data.getPlaceActual().getBloque()+"\n"
-                                +R.string.deseaUsar)
+                        usar.setMessage(res.getString(R.string.yaUsandoEsta)+"\n"
+                                +"    "+Data.getPlaceActual().getNombre()+" "+res.getString(R.string.en)
+                                +" "+res.getString(R.string.bloque)+" "+Data.getPlaceActual().getBloque()+"\n"
+                                +res.getString(R.string.deseaUsar))
                                 .setCancelable(false)
                                 .setPositiveButton(R.string.si, new DialogInterface.OnClickListener() {
                                     @Override

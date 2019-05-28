@@ -1,6 +1,7 @@
 package com.example.workplaces;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.view.GravityCompat;
@@ -12,6 +13,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -26,9 +29,13 @@ public class Menu_WP extends AppCompatActivity
     private Intent In;
     private int TypePlace;
 
+    private TextView RecUsado;
+    private Resources res;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        res = getResources();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference RefPlaces = database.getReference("places");
 
@@ -50,7 +57,7 @@ public class Menu_WP extends AppCompatActivity
 
                 }
                // Toast.makeText(Menu_WP.this, "LLegoData", Toast.LENGTH_SHORT).show();
-
+                updatePlaceActualView();
 
             }
 
@@ -71,6 +78,9 @@ public class Menu_WP extends AppCompatActivity
 //                        .setAction("Action", null).show();
 //            }
 //        });
+        RecUsado = (TextView) findViewById(R.id.hmTxtActualdes);
+        updatePlaceActualView();
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -112,6 +122,10 @@ public class Menu_WP extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+
+    public void desocupar(View view){
+        Data.DesocuparPlaceActual();
+    }
 //    Procedimientos de items de menu
 
 
@@ -159,4 +173,20 @@ public class Menu_WP extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    public void updatePlaceActualView(){
+        String txt = "";
+        Place PlaceActual = Data.getPlaceActual();
+        if (PlaceActual==null){
+            txt= res.getString(R.string.no_Res);
+
+        }else{
+            txt= res.getString(R.string.nombre)+": "+PlaceActual.getNombre()+"\n"
+                    +res.getString(R.string.bloque)+": "+PlaceActual.getBloque()+"\n"
+                    +res.getString(R.string.piso)+": "+PlaceActual.getPiso();
+        }
+        RecUsado.setText(txt);
+    }
+
+
 }

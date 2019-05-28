@@ -21,6 +21,44 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_menu__wp" />
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_menu__wp" />
+
+    <LinearLayout
+        android:id="@+id/cn_Actual"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="50dp"
+        android:background="#DBFFFFFF"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/hm_lb_UsandoActualmente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="@string/usando_actual"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/hmTxtActualdes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/hm_Desocupar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="desocupar"
+            android:text="@string/desocupar" />
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>
