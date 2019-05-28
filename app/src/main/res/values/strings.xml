@@ -56,7 +56,7 @@
 
 
     <string name="ya_ocupado">El lugar Seleccionado no esta disponible</string>
-<string name="ocupado">Ocupado</string>
+    <string name="ocupado">Ocupado</string>
     <string name="nuevo_lugar">Nuevo Lugar</string>
     <string name="id">Id</string>
     <string name="nombre">Nombre</string>
@@ -68,5 +68,9 @@
     <string name="bloque_vacio">Bloque no puede ser Vacio</string>
     <string name="piso_vacio">Piso no puede ser Vacio</string>
     <string name="pisoNeg">El piso es incorrecto</string>
+
+    <string name="create_new_user">Create New User</string>
+    <string name="register">Register</string>
+    <string name="err_register">Register failed</string>
 
 </resources>

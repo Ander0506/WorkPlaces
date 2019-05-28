@@ -126,6 +126,7 @@
                     android:id="@+id/button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:height="45dp"
                     android:background="#FFD4C3FC"
                     android:onClick="save"
                     android:text="@string/agregar"
